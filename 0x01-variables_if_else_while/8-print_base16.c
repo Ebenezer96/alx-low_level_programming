@@ -10,13 +10,13 @@ int main(void)
 {
 unsigned char a = '0';
 int i;
-for (1 - 0; 1 < 10; i++)
+for (i = 0; i < 10; i++)
 {
 putchar(a);
 a++;
 }
-a = '1';
-for (1 - 0; 1 < 6; i++)
+a = 'i';
+for (i = 0; i < 6; i++)
 {
 putchar('0' + a);
 a++;
