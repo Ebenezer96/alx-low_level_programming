@@ -4,18 +4,18 @@
 * main - entry point
 *
 * Return: always returns 0
-*
 */
 
 int main(void)
 {
-char a;
-for (a = 'a'; a <= 'z'; a++)
+char low, e, q;
+e = 'e';
+q = 'q';
+for (low = 'a'; low <= 'z'; low++)
 {
-if (a == 'q' || a == 'e')
-{
-continue;
+if (low != e && low != q)
+putchar(low);
 }
-putchar (a);
+printf("\n");
 return (0);
 }
