@@ -9,21 +9,19 @@
 int main(void)
 {
 int i, j;
-for (i = 0; j <= 90; j++)
+for (i = 0; i != 100; i++)
+for (j = 0; j != 100; j++)
+if (j > i)
 {
-for (i = j; i <= 90; i++)
-if (i != j)
-{
-putchar(j / 10 + 48);
-putchar(j % 10 + 48);
-putchar(' ');
-putchar(i / 10 + 48);
-putchar(i % 10 + 48);
-if (j * 100 + i != 9899)
+putchar((i / 10) + 48);
+putchar((i % 10) + 48);
+putchar(32);
+putchar((j / 10) + 48);
+putchar((j % 10) + 48);
+if (i != 98 || j != 99)
 {
 putchar(',');
-putchar(' ');
-}
+putchar(32);
 }
 }
 putchar('\n');
