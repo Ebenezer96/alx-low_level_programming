@@ -1,28 +1,61 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- * reverse_array - reverses the content of an array of integers
- * @a: An array of integers
- * @n: Number of elements to swap
+ * print_line - prints a s bytes of a buffer
+ * @c: buffer to print
+ * @s: bytes of buffer to print
+ * @l: line of buffer to print
  *
- * Return: empty.
+ * Return: void
  */
-void reverse_array(int *a, int n)
+
+void print_line(char *c, int s, int l)
 {
-	int *d, i, aux, k;
+	int j, k;
 
-	d = a;
-
-	for (i = 1; i < n; i++)
+	for (j = 0; j <= 9; j++)
 	{
-		d++;
+		if (j <= s)
+			printf("%02x", c[l * 10 + j]);
+		else
+			printf("  ");
+		if (j % 2)
+			putchar(' ');
 	}
-
-	for (k = 0; k < i / 2; k++)
+	for (k = 0; k <= s; k++)
 	{
-		aux = a[k];
-		a[k] = *d;
-		*d = aux;
-		d--;
+		if (c[l * 10 + k] > 31 && c[l * 10 + k] < 127)
+			putchar(c[l * 10 + k]);
+		else
+			putchar('.');
 	}
+}
+
+/**
+ * print_buffer - prints a buffer
+ * @b: buffer to print
+ * @size: size of buffer
+ *
+ * Return: void
+ */
+void print_buffer(char *b, int size)
+{
+	int i;
+
+	for (i = 0; i <= (size - 1) / 10 && size; i++)
+	{
+		printf("%08x: ", i * 10);
+		if (i < size / 10)
+		{
+			print_line(b, 9, i);
+		}
+		else
+		{
+			print_line(b, size % 10 - 1, i);
+		}
+		putchar('\n');
+	}
+	if (size == 0)
+		putchar('\n');
 }
